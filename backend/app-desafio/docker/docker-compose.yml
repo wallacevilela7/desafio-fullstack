@@ -1,0 +1,10 @@
+services:
+  postgres:
+    container_name: 'db-postgres'
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=produtos'
+      - 'POSTGRES_USER=myuser'
+      - 'POSTGRES_PASSWORD=secret'
+    ports:
+      - '5432:5432'
