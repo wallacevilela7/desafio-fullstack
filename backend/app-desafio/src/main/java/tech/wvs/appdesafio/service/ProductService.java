@@ -7,8 +7,6 @@ import tech.wvs.appdesafio.pagination.PageResponse;
 import tech.wvs.appdesafio.pagination.PaginationResponse;
 import tech.wvs.appdesafio.repository.ProductRepository;
 
-import java.util.stream.Collectors;
-
 @Service
 public class ProductService {
 
@@ -30,11 +28,7 @@ public class ProductService {
 
         return new PageResponse<>(
                 content,
-                new PaginationResponse(
-                        items.getNumber(),
-                        items.getSize(),
-                        items.getTotalElements(),
-                        items.getTotalPages(),
-                        items.hasNext()));
+                PaginationResponse.fromPage(items)
+        );
     }
 }
