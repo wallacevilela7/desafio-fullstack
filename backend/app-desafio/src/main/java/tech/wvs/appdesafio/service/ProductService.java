@@ -25,7 +25,7 @@ public class ProductService {
         var items = repository.findAll(pageRequest);
 
         var content = items.stream()
-                .map(p -> new ProductDto(p.getName(), p.getPrice()))
+                .map(ProductDto::fromDomain)
                 .toList();
 
         return new PageResponse<>(
